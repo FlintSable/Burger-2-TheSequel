@@ -1,0 +1,27 @@
+{
+  "name": "burger-2-thesequel",
+  "version": "1.0.2",
+  "description": "MVC Burger logger with MySQL, Node, Express, Handlebars and Sequelize ORM",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlintSable/Burger-2-TheSequel.git"
+  },
+  "author": "nn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FlintSable/Burger-2-TheSequel/issues"
+  },
+  "homepage": "https://github.com/FlintSable/Burger-2-TheSequel#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.9",
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.4"
+  }
+}
