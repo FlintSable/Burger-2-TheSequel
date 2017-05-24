@@ -1,4 +1,5 @@
 // dependencies
+// why not const? No real reason to change these variables 
 const express = require('express');
 const methodOverride = require('method-override');
 const router = express.Router();
@@ -9,8 +10,9 @@ router.get('/', function(req, res){
 	res.redirect('/burgers');
 });
 
-// This will access models
+// these all will access models
 router.get('/burgers', function(req, res){
+	// findAll is sequalize
 	models.burgers.findAll().then(function(data){
 		res.render('index', {burgers: data});
 	});
@@ -55,4 +57,5 @@ router.use(function(req, res){
 	res.redirect('/burgers');
 });
 
+// export the router object and all its routes that were configured
 module.exports = router;
