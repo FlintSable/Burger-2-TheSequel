@@ -1,0 +1,96 @@
+#!/usr/bin/env node
+
+// application entry point
+
+// this sets up the applicaiotn error handleing 
+// then serves up app.js to take care of the rest of the work
+
+/**
+ * Module dependencies.
+ */
+
+// real application entry point
+// sets up and returns the express applicaition object
+const app = require('../app');
+var debug = require('debug')('library-express:server');
+var http = require('http');
+const models = require("../models");
+
+var server = http.createServer(app);
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+
+
+// set the port of our app
+app.set('port', process.env.PORT || 8080);
+
+
+models.sequelize.sync().then(function () {
+  // set our app to listen to the port we set above
+  server.listen(app.get('port'), function() {
+    // then save a log of the listening to our debugger.
+    debug('Express server listening on port ' + server.address().port);
+  });
+});
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+
+/*** Event listener for HTTP server "error" event */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
