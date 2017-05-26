@@ -2,8 +2,9 @@
 // why not const? No real reason to change these variables 
 const express = require('express');
 const methodOverride = require('method-override');
+const bodyParser = require('body-parser');
 const router = express.Router();
-const models = require('../modles');
+const models = require('../models');
 
 //redirect to burger route
 router.get('/', function(req, res){
