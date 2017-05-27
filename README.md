@@ -49,6 +49,9 @@ All the recommended files and directories from the steps above should look like 
 │   ├── schema.sql
 │   └── seeds.sql
 │
+├── migrations
+│   └── 20170526040228-create-burger.js
+│
 ├── models
 │   └── burger.js
 │ 
