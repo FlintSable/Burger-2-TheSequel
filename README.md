@@ -2,7 +2,7 @@
 MVC Burger logger with MySQL, Node, Express, Handlebars and Sequelize ORM
 
 ## Live Link
- - pending
+ - https://ancient-carbon-90000.herokuapp.com
 
 ### Overview
 
